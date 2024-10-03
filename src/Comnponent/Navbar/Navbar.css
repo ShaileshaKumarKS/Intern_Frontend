@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width:120px;
+}
+nav{
+    width:100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px -2px rgb(7, 7, 7);
+    overflow: hidden;
+
+}
+ul{
+    display: flex;
+}
+.elem{
+    display: flex;
+    margin-left: 34px;
+    justify-content: space-between;
+}
+ul p{
+    margin: 30px;
+    color: black;
+}
+.search{
+    position: relative;
+    left: 34%;
+    display: flex;
+    margin-top: 15px;
+}
+.search i{
+    font-size: 20px;
+    font-weight: 200;
+}
+.search input{
+    margin-left: 10px;
+    font-size: 15px;
+    width: 100px;
+    color: black;
+    border: none;
+    outline: one;
+    bottom:55%;
+    margin-bottom: 60px;
+}
+.auth{
+    position: relative;
+    left:33%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+.btn1{
+    color: #078edd;
+    outline: #078edd 2px solid;
+    border: none;
+    width: 60px;
+    margin-right: -52px;
+    height: 25px;
+    border-radius: 2px;
+    font-size: 16px;
+}
+.btn2{
+    color:white;
+    outline: #078edd 2px solid;
+    background-color: #078edd;
+    border: none;
+    width: 70px;
+    margin-left: 78px;
+    height: 25px;
+    border-radius: 2px;
+    font-size: 16px; 
+}
+.hire{
+    position: relative;
+    left: 33%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 30px;
+    font-weight: 500;
+    margin-left: 23px;
+}
+.admin{
+    position: relative;
+    left: 30%;
+    margin-top: 24px;
+}
+.admin button{
+    color: white;
+    outline: #078edd 2px solid;
+    background-color: #078edd;
+    border: none;
+    width: 70px;
+    margin-left: 78px;
+    height: 25px;
+    font-size: 16px;
+    border-radius:2px;
+}
+#bt{
+    color: white;
+    outline: #078edd 2px solid;
+    background-color: #078edd;
+    border: none;
+    width: 70px;
+    margin-left: 49rem;
+    height: 25px;
+    font-size: 16px;
+    margin-top: 18px;
+    border-radius: 2px;
+}
+@media screen and (max-width: 768px){
+    .nav1{
+        display: none;
+    }
+}
+#cross{
+    position: relative; 
+    left: 90%;
+    font-size: 34px;
+}
+.login{
+    box-shadow: 0px 0px 5px -2px black;
+   
+}
+.location{
+    top:6rem;
+    left:1%;
+    position: absolute;
+}
+#ico3{
+    position: absolute;
+    top:38%;
+    left:23rem;
+}
+.Profile{
+    top:0rem;
+    left:61%;
+    position: absolute;
+}
+.category{
+    top:6rem;
+    left: 14%;
+    position: absolute;
+    z-index: 1;
+}
+.category2{
+    top:-8rem;
+    left: 14%;
+    position: absolute;
+}
+.Explore{
+    top: 6rem;
+    left: 14%;
+    position: absolute;
+}
+.location2{
+    top: -8rem;
+    left: 50%;
+    position: relative;
+}
+.jobs{
+    position: relative;
+    top: 0%;
+    left: 24rem;
+}
+#more{
+    top:1rem;
+    left: 14%;
+    position: absolute;
+}
+
+
+#loginClose{
+    left:92%;
+    top: 0%;
+    position: absolute;
+}
+.login{
+    width: 35%;
+    position: absolute;
+    left: 33%;
+    z-index: 1;
+    background-color: #fff;
+    top:20%;
+    box-shadow: 0px 0px 5px -2px #078edd;
+}
+#internshipColo{
+    margin-top: -16px;
+    z-index: 1;
+}
+#jobsDrop{
+    left: 22%;
+    z-index: -1;
+}
+.logout{
+    position: relative;
+    width: 100px;
+    left: 575%;
+    top: -8px;
+}
+#picpro{
+    position: relative;
+    left: 666%;
+    top: 8px;
+}
+#ico2{
+    top: 31%;
+    position: relative;
+    left: -7%;
+}
+#ico{
+    top:31%;
+    position: relative;
+    left: -7%;
+}
+.proName{
+    position: relative;
+    font-weight: bold;
+    left: 767%;
+    top: -28px;
+}
+.profile-dropdown{
+    position: absolute;
+    top: 10%;
+    left: 126%;
+    background: white;
+    height: 250px;
+    z-index: 1;
+}
+.profile-dropdown-2{
+    position: absolute;
+    top:11%;
+    left: 10%;
+    background: white;
+    width: 30%;
+    height: 60%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+}
+.profile-dropdown-2 p {
+    margin-left: 6px;
+    margin-top: 4px;
+    margin-right: 3px;
+}
+.profile-dropdown-1 p{
+    margin-left: 6px;
+    margin-top: 4px;
+    margin-right: 3px;
+}
+.profile-dropdown-1{
+    position: absolute;
+    top: 11%;
+    left: 24%;
+    background: white;
+    width: 30%;
+    height: 60%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.line{
+    width: 0.5px;
+}
+.ppp{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.ii{
+    align-items: center;
+    justify-content: center;
+    margin-left: 180px;
+}
+.crx{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: #078edd;
+    border: 2px solid red;
+}
+
+#file{
+    display: none;
+    opacity: 0;
+    z-index: -1;
+}
+#lab{
+    border: 2px dotted rgb(73, 69, 69);
+
+    font-size: large;
+    padding: 5px;
+    position: relative;
+    left: 46%;  
+    box-shadow: 3px 3px whitesmoke;
+}
+
+     
+     

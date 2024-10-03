@@ -1,0 +1,222 @@
+import React, { useEffect, useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../Feature/UserSlice';
+import axios from 'axios';
+import './InternDetail.css'
+
+
+
+function InternDetail() {
+
+  const user=useSelector(selectUser)
+
+  const [isDivVisible,setDivVisible]=useState(false)
+  const [textarea,setTextarea]=useState("")
+  const [company,setCompany]=useState("")
+  const [category,setCategory]=useState("")
+
+  const navigate=useNavigate()
+
+  let search=window.location.search;
+  const params=new URLSearchParams(search);
+  const id=params.get("q")
+
+  
+ const [data,setData]=useState([])
+  useEffect(()=>{
+    const fetchData=async()=>{
+      const response=await axios.get(`https://internareabackend-nrg6.onrender.com/api/internship/${id}`)
+    
+      const{company,category}=response.data;
+      setCompany(company)
+      setCategory(category)
+      setData(response.data)
+    }
+    fetchData();
+  })
+
+  const show=()=>{
+    setDivVisible(true)
+  }
+
+  const hide=()=>{
+    setDivVisible(false)
+  }
+  const submitApplication=async()=>{
+    const text=document.getElementById("text")
+    if(text.value===""){
+      alert("Fill the mandetory fields")
+    }
+    else{
+      const bodyJson={
+        coverLetter:textarea,
+        category:category,
+        company:company,
+        user:user,
+        Application:id
+      }
+      await axios.post("https://internareabackend-nrg6.onrender.com/api/application",bodyJson).then((res)=>{
+        console.log("Submitted")
+        
+      }).catch((err)=>{
+        alert("error" )
+      })
+      alert("Done")
+      navigate("/Internships")
+    }
+  }
+    
+  
+  return (
+    
+    <div>
+    
+      <div className='details-app'>
+      
+        
+     
+        
+          <h1 className='font-bold text-3xl text-center'>{data.title}</h1>
+          <div className='m-14 shadow-sm rounded-md border'>
+          <p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i>Actively Hiring</p>
+         
+          <p className='text-xl ml-4 font-bold mt-4'>{data.title}</p>
+          <p className='text-sm ml-4 text-slate-300 font-bold'>{data.title}</p>
+          <p><i class="bi bi-geo-alt-fill ml-4"></i>{data.location}</p>
+          <div className="flex text-sm justify-between">
+              <p className='mt-3 ml-4 text-slate-400'> <i class="bi bi-play-circle-fill"></i>   Start Date  <br />  {data.StartDate}</p>
+             <p className='mt-3 ml-4 text-slate-400'> <i class="bi bi-calendar-check-fill"></i> Duration<br />
+             {data.Duration}</p>
+            <p className='mt-3 ml-4 text-slate-400'>  <i class="bi bi-cash"></i>  stipend<br /> {data.stipend}</p>
+             </div>
+             <div className='flex'>
+              <p className='bg-green-100 rounded-md ml-4 text-green-300'><i class="bi bi-clock"></i>12/12/2012</p>
+             </div>
+             <hr/>
+             <div className='aboutCompany flex justify-start'>
+              <p className='mt-3 text-xl font-bold text-start'>About {data.company}</p>
+              <br/>
+              </div>
+              <div className="flex">
+              <p className='text-blue-500'>Instagram page <i class="bi bi-arrow-up-right-square"></i></p>
+              </div>
+              <p className='mt-4'>{data.aboutCompany}</p>
+       
+          <div className='about-job'>
+          <p className='mt-3 text-xl font-bold text-start'>About Internship</p>
+          </div>
+          <p>{data.aboutInternship}</p>
+          <p className='text-blue-500 justify-start'>Learn Business Communication</p>
+
+          <div className='whocan'>
+            <p className='mt-3 text-xl font-bold text-start'>Who can apply</p>
+            <p>{data.Whocanapply}</p>
+
+            <p className='mt-3 text-xl font-bold text-start'>Additional Information</p>
+            <p>{data.AdditionalInfo}</p>
+
+            <p className='mt-3 text-xl font-bold text-start'>Number of openings</p>
+            <p>{data.numberOfopning}</p>
+            <div className='flex justify-center bg-blue-500 w-40 text-center mt-6 text-white font-bold'>
+              <button className='flex justify-center align-middle' onClick={show}>Apply</button>
+            </div>
+          </div>
+          </div>
+      
+      
+      
+      </div>
+      {
+        isDivVisible &&(
+         <>
+         <div className="application-page">
+          <div className='bg'>
+            <button className='close2' onClick={hide}><i class="bi bi-x"></i></button>
+            <p className='text-xs'>Application for {data.company}</p>
+            <p className='mt-3 text-sm font-bold text-start mb-3'>{data.aboutCompany}</p>
+          </div>
+          <div className='moreSteps'>
+            <p className='font-semibold text-xl'>Your resume</p>
+            <small className='justify-center'>your current resume will be submitted along with the application</small>
+            <p className='mt-5 font-semibold text-xl'>Cover letter</p>
+            <br/>
+            <p>Why should we hire you for this role?</p>
+            <textarea name='coverLetter' placeholder=''id="text" value={textarea} onChange={(e)=>setTextarea(e.target.value)}></textarea>
+          <p className='mt-5 font-semibold text-xl'>your availability</p>
+          <p>confirm your availability</p>
+          </div>
+          
+          <div>
+        <label>
+          <input
+            type="radio"
+            value="Yes, I am available to join immediately"
+           
+          
+          />
+          Yes, I am available to join immediately
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="No, I am currently on notice period"
+           
+          
+          />
+          No, I am currently on notice period
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="No, I will have to serve notice period"
+          
+           
+          />
+          No, I will have to serve notice period
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="Other"
+            
+       
+          />
+          Other <span className='text-slate-500'>
+          (Please specify your availability)  </span> 
+        </label>
+      </div>
+      <p className='mt-5 font-semibold text-xl'>Custom resume <span className='text-slate-500'>(Optional)</span></p>
+      <small className='text-slate-500'>Employer can download and view this resume</small>
+
+ 
+      <div className="submit flex justify-center">
+        {user?(
+    <button className='submit-btn' onClick={submitApplication}>Submit application</button>
+        ):(
+          <Link to={"/register"}>
+          <button className='submit-btn'  >Submit application</button>
+          </Link>
+        )
+          
+        }
+  </div>
+
+         </div>
+         </> 
+        )
+      }
+  </div>
+  );
+}
+
+export default InternDetail;
