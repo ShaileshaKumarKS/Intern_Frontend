@@ -37,10 +37,10 @@
         };
       }
   
-      const notification = new Notification(
+      // const notification = new Notification(
         status === "hired" ? "Application Hired": "Application Rejected",
         options
-      );
+      // );
   
      
     }

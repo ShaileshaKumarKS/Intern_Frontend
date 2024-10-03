@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import { useState } from 'react';
 import { signOut,signInWithPopup } from 'firebase/auth';
 import { auth,provider } from '../../Firebase/Firebase';
-import {useDispatch, useSelector} from 'react-redux'
+import { useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../Feature/UserSlice';
@@ -36,17 +36,17 @@ function Navbar () {
       setAvatar(user?.photoURL);
     }
 
-  },[]);
-  const handleChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setAvatar(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  });
+  // const handleChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setAvatar(reader.result);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   const loginFunction=()=>{
     signInWithPopup(auth,provider).then((res)=>{

@@ -28,7 +28,7 @@ import CheckoutPage from './Comnponent/Pay';
 
 function App() {
 
-  const user =useSelector(selectUser);
+  // const user =useSelector(selectUser);
   const dispatch=useDispatch();
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{

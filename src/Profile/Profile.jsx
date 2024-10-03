@@ -16,7 +16,7 @@ function Profile() {
  const user=useSelector(selectUser)
  const dispatch=useDispatch();
 
- const [profile,setProfile]=useState()
+//  const [profile,setProfile]=useState()
  const [avatar, setAvatar] = useState(user.photoURL);
 
 
@@ -40,13 +40,11 @@ function Profile() {
       reader.readAsDataURL(file);
     }
   };
-  const profileset=()=>{
-    setProfile(true)
-  }
+ 
   
   return (
     <div>
-      <div className="flex items-center mt-9 mb-4 justify-center" onClick={profileset}>
+      <div className="flex items-center mt-9 mb-4 justify-center" >
         <div className='max-w-xs'>
             <div className='bg-white shadow-lg rounded-lg py-3'>
    <div className="photo-wrapper p-2">
