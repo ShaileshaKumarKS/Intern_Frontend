@@ -43,9 +43,7 @@ function Profile() {
   const profileset=()=>{
     setProfile(true)
   }
-  const closepro=()=>{
-    setProfile(false)
-  }
+  
   return (
     <div>
       <div className="flex items-center mt-9 mb-4 justify-center" onClick={profileset}>

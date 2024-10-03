@@ -9,9 +9,6 @@ import {useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../Feature/UserSlice';
-import Avatar from '@mui/material/Avatar';
-import log from '../../Assets/6.jpg'
-import AddIcon from '@mui/icons-material/Add'
 
 
 

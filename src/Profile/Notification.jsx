@@ -1,5 +1,4 @@
 
-import pn from  '../../src/Assets/org.png'
 
  function requestNotificationPermission() {
   
