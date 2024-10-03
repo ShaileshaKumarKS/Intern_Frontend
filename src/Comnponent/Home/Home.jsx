@@ -12,7 +12,7 @@ import axios from 'axios';
 function Home ()  {
 
 
-  const [currentSlide,setCurrentSlide]=useState(0)
+  const [currentSlide,setCurrentSlide]=useState()
   const [selectedCategory,setSelectedCategory]=useState("Big Brands")
   const [internshipData,setInternshipData]=useState([])
 

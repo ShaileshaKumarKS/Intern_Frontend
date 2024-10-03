@@ -38,8 +38,8 @@
       }
   
       // const notification = new Notification(
-        status === "hired" ? "Application Hired": "Application Rejected",
-        options
+       Notification( status === "hired" ? "Application Hired": "Application Rejected",
+        options);
       // );
   
      
