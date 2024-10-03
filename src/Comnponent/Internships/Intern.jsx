@@ -58,10 +58,10 @@ function Intern() {
 }
     
   
-  useEffect(()=>{
-    filterInternships(searchCategory,searchLocation);
-  },[searchCategory,searchLocation])
-  console.log(filterInternship)
+   useEffect(()=>{
+     filterInternships(searchCategory,searchLocation);
+   },[])
+  // console.log(filterInternship)
 
 
 

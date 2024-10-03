@@ -56,10 +56,10 @@ function JobAvl() {
       
     }
   
-  useEffect(()=>{
-    filterJobs(searchCategory,searchLocation);
-  },[searchCategory,searchLocation])
-  console.log(filterJob)
+   useEffect(()=>{
+     filterJobs(searchCategory,searchLocation);
+   },[searchCategory,searchLocation])
+   
 
 
 

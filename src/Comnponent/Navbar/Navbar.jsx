@@ -36,7 +36,7 @@ function Navbar () {
       setAvatar(user?.photoURL);
     }
 
-  });
+  },[]);
   // const handleChange = (event) => {
   //   const file = event.target.files[0];
   //   if (file) {
