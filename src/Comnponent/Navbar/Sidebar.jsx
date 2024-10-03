@@ -18,7 +18,7 @@ function Sidebar () {
     if(localStorage.getItem("userPhotoURL")){
       setAvatar(localStorage.getItem("userPhotoURL"));
     }else if(user?.photoURL){
-      setAvatar(user?.photoURL);
+      setAvatar(user.photoURL);
     }
 },[]);
     const openSidebar =()=>{

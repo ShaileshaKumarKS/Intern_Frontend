@@ -19,14 +19,14 @@ function Navbar () {
    const navigate=useNavigate()
 
    const user=useSelector(selectUser)
-   const dispatch=useDispatch()
+  // const dispatch=useDispatch()
    
   const [isDivVisibleForintern,setDivVisibleForintern]=useState(false)
   const [isDivVisibleForJob,setDivVisibleForJob]=useState(false)
   const [isDivVisibleForLogin,setDivVisibleForLogin]=useState(false)
   const [isDivVisibleForProfile,setDivVisibleProfile]=useState(false)
   const [isStudent,setStudent]=useState(true)
-  const [profile,setProfile]=useState()
+ // const [profile,setProfile]=useState()
   const [avatar, setAvatar] = useState();
 
   useEffect(()=>{
@@ -105,12 +105,12 @@ function Navbar () {
        
   }
 
-  const profileset=()=>{
-    setProfile(true)
-  }
-  const closepro=()=>{
-    setProfile(false)
-  }
+  // const profileset=()=>{
+  //   setProfile(true)
+  // }
+  // const closepro=()=>{
+  //   setProfile(false)
+  // }
   
   return (
     
