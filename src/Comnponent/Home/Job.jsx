@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Job  ()  {
 
-    // const [currentSlide,setCurrentSlide]=useState(0)
+   const [currentSlide,setCurrentSlide]=useState(0)
     const [selectedCategory,setSelectedCategory]=useState("Big Brands")
     const [jobData,setJobData]=useState([])
   
