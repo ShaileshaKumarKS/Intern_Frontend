@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import compLogo from '../../Assets/netflix.png'
@@ -45,7 +45,7 @@ function JobAvl() {
     setSearchLocation(locationValue);
     setFilterJob([searchCategory,locationValue])
   }
-  const filterJobs = (category, location) => {
+  const filterJobs = useCallback((category, location) => {
     
         const filterData = JobData.filter(
           (Job) =>
@@ -54,11 +54,12 @@ function JobAvl() {
         )
         setFilterJob(filterData);
       
-    }
+    },[JobData])
   
    useEffect(()=>{
+
      filterJobs(searchCategory,searchLocation);
-   },[searchCategory,searchLocation])
+   },[searchCategory,searchLocation,filterJobs])
    
 
 

@@ -10,6 +10,7 @@ import { auth } from '../../Firebase/Firebase';
 
 function Sidebar () {
     
+    const user=useSelector(selectUser)
     const [sidebarOpen,setSidebarOpen]=useState(false);
     const navigate=useNavigate()
     const [avatar, setAvatar] = useState(null);
@@ -17,10 +18,10 @@ function Sidebar () {
   useEffect(()=>{
     if(localStorage.getItem("userPhotoURL")){
       setAvatar(localStorage.getItem("userPhotoURL"));
-    }else if(user?.photoURL){
-      setAvatar(user.photoURL);
+    }else if(user?.photo){
+      setAvatar(user?.photo);
     }
-},[]);
+},[user?.photo]);
     const openSidebar =()=>{
         setSidebarOpen(true);
     };
@@ -46,7 +47,7 @@ function Sidebar () {
         signOut(auth)
         navigate("/")
     }
-    const user=useSelector(selectUser)
+  
  
   return (
      <>

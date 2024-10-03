@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import compLogo from '../../Assets/netflix.png'
@@ -46,7 +46,7 @@ function Intern() {
     setSearchLocation(locationValue);
     setFilterInternship([searchCategory,locationValue])
   }
-  const filterInternships = (category, location) => {
+  const filterInternships = useCallback((category, location) => {
     
     const filterData = InternData.filter(
       (internship) =>
@@ -55,12 +55,12 @@ function Intern() {
     );
     setFilterInternship(filterData);
   
-}
+},[InternData])
     
   
    useEffect(()=>{
      filterInternships(searchCategory,searchLocation);
-   },[])
+   },[searchCategory,searchLocation,filterInternships])
   // console.log(filterInternship)
 
 

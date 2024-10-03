@@ -32,11 +32,11 @@ function Navbar () {
   useEffect(()=>{
     if(localStorage.getItem("userPhotoURL")){
       setAvatar(localStorage.getItem("userPhotoURL"));
-    }else if(user?.photoURL){
-      setAvatar(user?.photoURL);
+    }else if(user?.photo){
+      setAvatar(user?.photo);
     }
 
-  },[]);
+  },[user?.photo]);
   // const handleChange = (event) => {
   //   const file = event.target.files[0];
   //   if (file) {
