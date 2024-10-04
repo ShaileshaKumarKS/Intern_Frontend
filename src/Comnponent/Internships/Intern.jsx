@@ -55,7 +55,7 @@ function Intern() {
     );
     setFilterInternship(filterData);
   
-},[])
+},[InternData])
     
   
    useEffect(()=>{
