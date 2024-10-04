@@ -19,6 +19,7 @@ function Home ()  {
   useEffect(()=>{
     const fetchData=async ()=>{
       try{
+        currentSlide=0;
         const response=await axios.get('https://internareabackend-nrg6.onrender.com/api/internship')
         setInternshipData(response.data)
       } catch(error){
