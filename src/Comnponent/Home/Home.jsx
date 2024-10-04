@@ -18,8 +18,7 @@ function Home ()  {
 
   useEffect(()=>{
     const fetchData=async ()=>{
-      try{
-        currentSlide=0;
+      try{ 
         const response=await axios.get('https://internareabackend-nrg6.onrender.com/api/internship')
         setInternshipData(response.data)
       } catch(error){
@@ -44,6 +43,7 @@ function Home ()  {
   }
   sideScroll(container, direction, 25, step, 10)
   }
+  if(currentSlide){}
   const handleSlideIntern=(direction)=>{
     const container=document.getElementById("container2");
     const step=100;
