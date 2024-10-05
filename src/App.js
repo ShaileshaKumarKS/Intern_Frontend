@@ -23,6 +23,7 @@ import DetailApplicationUser from './Applications/DetailApplicationUser';
 import UserApplication from './Profile/UserApplication';
 import { requestNotificationPermission } from './Profile/Notification';
 import CheckoutPage from './Comnponent/Payment/Checkout';
+import SubscriptionForm from './Comnponent/Payment/SubscriptionForm';
  
 
 
@@ -68,7 +69,7 @@ function App() {
       <Route path='/applications' element={<ViewAllApplication/>}></Route>
       <Route path='/userapplicationdetail' element={<DetailApplicationUser/>}></Route>
       <Route path='/userapplication'element={<UserApplication/>}></Route>
-      <Route path='/payment'element={<CheckoutPage/>}></Route>
+      <Route path='/payment'element={<SubscriptionForm/>}></Route>
 
        </Routes>
         

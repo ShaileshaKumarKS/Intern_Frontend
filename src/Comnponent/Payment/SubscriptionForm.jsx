@@ -66,10 +66,10 @@ const SubscriptionForm = () => {
             />
             <select value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)}>
                 <option value="">Select a Plan</option>
-                <option value="price_free_plan">Free Plan</option>
-                <option value="price_bronze_plan">Bronze Plan</option>
-                <option value="price_silver_plan">Silver Plan</option>
-                <option value="price_gold_plan">Gold Plan</option>
+                <option value="price_1Q6DWKFMGhaCRLSyBjv3AhQ8">Free Plan</option>
+                <option value="price_1Q6DcyFMGhaCRLSyuMQ7769W">Bronze Plan</option>
+                <option value="price_1Q6DfOFMGhaCRLSyunXaAyeY">Silver Plan</option>
+                <option value="price_1Q6DgbFMGhaCRLSyd0BBG1aO">Gold Plan</option>
             </select>
             <CardElement />
             <button type="submit" disabled={!stripe || loading}>
