@@ -22,7 +22,7 @@ import DetailApplication from './Applications/DetailApplication';
 import DetailApplicationUser from './Applications/DetailApplicationUser';
 import UserApplication from './Profile/UserApplication';
 import { requestNotificationPermission } from './Profile/Notification';
-import CheckoutPage from './Comnponent/Pay';
+import CheckoutPage from './Comnponent/Payment/Checkout';
  
 
 

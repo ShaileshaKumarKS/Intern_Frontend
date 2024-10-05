@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { useState ,useEffect} from 'react';
 import '../../src/Comnponent/Navbar/Navbar.css'
 import { ProfileSettings } from './ProfileSettings';
-import CheckoutPage from '../Comnponent/Pay';
+import CheckoutPage from '../Comnponent/Payment/Checkout';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import Payment from '../Comnponent/Payment/Payment';
 
-
-const stripePromise=loadStripe('sk_test_51Q53EfFMGhaCRLSy7jTQHxgPGEVtCia7JegU08Ftw1l9X6SOZwi1d2uqkmZkUBn9wID9pQEYIFCoqhi9tDpN3pkJ00pUafhDm6')
+const stripePromise=loadStripe(' pk_test_51Q53EfFMGhaCRLSyxu0TfEjRjVWzHrYtqCfRryFb2m6QHDqAPA3seLGUq3bGbIYTZUxJluchzzDQNlJFCvdTmc0g00H2rICfih');
 
 function Profile() {
  const user=useSelector(selectUser)
@@ -77,9 +77,10 @@ function Profile() {
 </div>
 <br/>
 <ProfileSettings/>
-<Elements stripe={stripePromise}>
-<CheckoutPage/>
-</Elements>
+
+ <Elements stripe={stripePromise}>
+ <Payment/>
+</Elements> 
 </div>
 </div>
 </div>
