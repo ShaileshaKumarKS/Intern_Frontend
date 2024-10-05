@@ -4,9 +4,10 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 const SubscriptionForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+    const [email, setEmail] = useState(''); // Email input for the user
+    const [selectedPlan, setSelectedPlan] = useState(''); // State for selected plan
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [selectedPlan, setSelectedPlan] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,7 +32,7 @@ const SubscriptionForm = () => {
             return;
         }
 
-        // Send paymentMethod.id and selected plan's Price ID to your server
+        // Send paymentMethodId, selected plan's Price ID, and email to the backend
         const response = await fetch('https://internareabackend-nrg6.onrender.com/api/subscribe', {
             method: 'POST',
             headers: {
@@ -39,7 +40,8 @@ const SubscriptionForm = () => {
             },
             body: JSON.stringify({
                 paymentMethodId: paymentMethod.id,
-                plan: selectedPlan,
+                plan: selectedPlan, // Price ID of the selected plan
+                email: email,
             }),
         });
 
@@ -55,6 +57,20 @@ const SubscriptionForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+            />
+            <select value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)}>
+                <option value="">Select a Plan</option>
+                <option value="price_free_plan">Free Plan</option>
+                <option value="price_bronze_plan">Bronze Plan</option>
+                <option value="price_silver_plan">Silver Plan</option>
+                <option value="price_gold_plan">Gold Plan</option>
+            </select>
             <CardElement />
             <button type="submit" disabled={!stripe || loading}>
                 Subscribe
