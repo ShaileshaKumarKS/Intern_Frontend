@@ -71,6 +71,7 @@ const SubscriptionForm = () => {
                 <option value="price_1Q6DfOFMGhaCRLSyunXaAyeY">Silver Plan</option>
                 <option value="price_1Q6DgbFMGhaCRLSyd0BBG1aO">Gold Plan</option>
             </select>
+            <br/>
             <CardElement />
             <button type="submit" disabled={!stripe || loading}>
                 Subscribe
