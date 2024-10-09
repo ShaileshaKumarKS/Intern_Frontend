@@ -6,7 +6,7 @@
     if (Notification.permission !== "granted") {
       Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
-          console.log("Notification permission granted.");
+            console.log("Notification permission granted.");
         } else {
           console.log("Notification permission denied.");
         }
@@ -34,13 +34,14 @@
           requireInteraction: true,
           vibrate: [200, 100, 200],
         
+          
         };
       }
   
-      // const notification = new Notification(
-       Notification( status === "hired" ? "Application Hired": "Application Rejected",
+    
+      new  Notification( status === "hired" ? "Application Hired": "Application Rejected",
         options);
-      // );
+  
   
      
     }

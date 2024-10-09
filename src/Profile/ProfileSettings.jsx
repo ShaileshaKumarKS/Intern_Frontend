@@ -14,7 +14,7 @@ export function ProfileSettings() {
   };
 
   return (
-    <div className="pf bg-red-400 h-8 ">
+    <div className="sli" >
       <h2>Notifications <i class="bi bi-bell"></i></h2>&nbsp; &nbsp; 
       <label className="switch">
         <input
@@ -22,9 +22,11 @@ export function ProfileSettings() {
           checked={notificationsEnabled}
           onChange={handleToggle}
         />
+        
         <span className="slider round"></span>
       </label>
-       {/* <p>{notificationsEnabled ? "Notifications Enabled" : "Notifications Disabled"}</p>  */}
+        {/* <p>{notificationsEnabled ? "Notifications Enabled" : "Notifications Disabled"}</p>   */}
+        
     </div>
   );
 }

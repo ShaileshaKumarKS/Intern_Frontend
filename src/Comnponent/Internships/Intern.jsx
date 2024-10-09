@@ -15,12 +15,11 @@ function Intern() {
     const [InternData,setInternData]=useState([])
 
   useEffect(()=>{
-    const fetchData= async()=>{
+    const fetchData=async()=>{
       try{
-        const response=await axios.get("https://internareabackend-nrg6.onrender.com/api/internship")
+        const response=await axios.get('https://internareabackend-nrg6.onrender.com/api/internship')
         setInternData(response.data)
         
-       
       }catch(error){
         console.log(error)
       }
@@ -49,10 +48,10 @@ function Intern() {
   const filterInternships = useCallback((category, location) => {
     
     const filterData = InternData.filter(
-      (internship) =>
-        internship.category.toLowerCase().includes(category.toLowerCase()) &&
-        internship.location.toLowerCase().includes(location.toLowerCase())
-    );
+      (Internship) =>
+        Internship.category.toLowerCase().includes(category.toLowerCase()) &&
+        Internship.location.toLowerCase().includes(location.toLowerCase())
+    )
     setFilterInternship(filterData);
   
 },[InternData])
@@ -61,7 +60,7 @@ function Intern() {
    useEffect(()=>{
      filterInternships(searchCategory,searchLocation);
    },[searchCategory,searchLocation,filterInternships])
-  // console.log(filterInternship)
+ 
 
 
 
@@ -182,7 +181,7 @@ function Intern() {
 <span className='justify-end flex text-blue-400 mr-3'>Clear all</span>
 </div>
 <div className="search-2"><div className="search-container">
-  <label htmlFor="ex ">Experince</label>
+  <label htmlFor="ex ">Experience</label>
   <input type="text" id='ex' placeholder='eg. 0-1 year' />
   <div className="search-icon">
   <i class="bi bi-search"></i>

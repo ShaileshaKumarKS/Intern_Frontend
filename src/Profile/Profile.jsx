@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom';
 import { useState ,useEffect} from 'react';
 import '../../src/Comnponent/Navbar/Navbar.css'
 import { ProfileSettings } from './ProfileSettings';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import SubscriptionForm from '../Comnponent/Payment/SubscriptionForm';
-
-const stripePromise=loadStripe(' pk_test_51Q53EfFMGhaCRLSyxu0TfEjRjVWzHrYtqCfRryFb2m6QHDqAPA3seLGUq3bGbIYTZUxJluchzzDQNlJFCvdTmc0g00H2rICfih');
 
 function Profile() {
  const user=useSelector(selectUser)
@@ -39,8 +34,7 @@ function Profile() {
       reader.readAsDataURL(file);
     }
   };
- 
-  
+
   return (
     <div>
       <div className="flex items-center mt-9 mb-4 justify-center" >
@@ -75,13 +69,13 @@ function Profile() {
 </Link>
 </div>
 <br/>
+
 <ProfileSettings/>
+<br/>
+<Link to='/payment'> <button  className='bg-yellow-300 rounded-lg p-1'>Subscriptions</button></Link>
 
- <Elements stripe={stripePromise}>
 
- <SubscriptionForm/>
-</Elements> 
-</div>
+</div> 
 </div>
 </div>
       

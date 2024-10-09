@@ -22,7 +22,7 @@ import DetailApplication from './Applications/DetailApplication';
 import DetailApplicationUser from './Applications/DetailApplicationUser';
 import UserApplication from './Profile/UserApplication';
 import { requestNotificationPermission } from './Profile/Notification';
-import SubscriptionForm from './Comnponent/Payment/SubscriptionForm';
+import SubscriptionWrapper from './Comnponent/Payment/Pay';
  
 
 
@@ -47,7 +47,7 @@ function App() {
     })
   },[dispatch]);
 
- requestNotificationPermission();
+ //requestNotificationPermission();
   return (
     <div className="App">
       <Navbar/>
@@ -68,8 +68,8 @@ function App() {
       <Route path='/applications' element={<ViewAllApplication/>}></Route>
       <Route path='/userapplicationdetail' element={<DetailApplicationUser/>}></Route>
       <Route path='/userapplication'element={<UserApplication/>}></Route>
-      <Route path='/payment'element={<SubscriptionForm/>}></Route>
-
+      <Route path='/payment' element={<SubscriptionWrapper/>}></Route>
+      
        </Routes>
         
 

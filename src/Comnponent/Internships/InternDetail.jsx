@@ -133,7 +133,7 @@ function InternDetail() {
          <div className="application-page">
           <div className='bg'>
             <button className='close2' onClick={hide}><i class="bi bi-x"></i></button>
-            <p className='text-xs'>Application for {data.company}</p>
+            <h2 className='text-xs'>Application for {data.company}</h2>
             <p className='mt-3 text-sm font-bold text-start mb-3'>{data.aboutCompany}</p>
           </div>
           <div className='moreSteps'>

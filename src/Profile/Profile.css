@@ -4,8 +4,11 @@
     display: inline-block;
     width: 45px;
     height: 24px;
+    
   }
-  
+  .sli{
+    display: flex;
+  }
   .switch input {
     opacity: 0;
     width: 0;

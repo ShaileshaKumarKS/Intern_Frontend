@@ -123,9 +123,9 @@ function Navbar () {
     </div>
     <div className='elem'>
    
-       <Link to={"/Internships"}><p id='int' className=''onMouseEnter={showInternships}>
+       <Link to={"/Internships"}><p id='int' className=''onMouseEnter={showInternships} onMouseLeave={hideInternships}>
         Internships  <i id="ico"onClick ={hideInternships}class="bi bi-caret-down-fill"></i></p></Link> 
-        <Link to={"/Jobs"}><p onMouseEnter={showJobs}>
+        <Link to={"/Jobs"}><p onMouseEnter={showJobs} onMouseLeave={hideJobs}>
           Jobs<i id="ico2"class="bi bi-caret-down-fill" onClick={hideJobs}></i></p></Link>
     </div>
     <div className="search">

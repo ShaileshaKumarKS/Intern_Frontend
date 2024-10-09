@@ -17,8 +17,9 @@ function JobAvl() {
     useEffect(()=>{
       const fetchData=async()=>{
         try{
-        const response=await axios.get(`https://internareabackend-nrg6.onrender.com/api/job`)
+        const response=await axios.get("https://internareabackend-nrg6.onrender.com/api/job")
         setJobData(response.data)
+      
       }catch(error){
         console.log(error)
       }
@@ -184,7 +185,7 @@ function JobAvl() {
 <span className='justify-end flex text-blue-400 mr-3'>Clear all</span>
 </div>
 <div className="search-2"><div className="search-container">
-  <label htmlFor="ex ">Experince</label>
+  <label htmlFor="ex ">Experience</label>
   <input type="text" id='ex' placeholder='eg. 0-1 year' />
   <div className="search-icon">
   <i class="bi bi-search"></i>

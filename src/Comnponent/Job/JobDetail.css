@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+.info{
+  margin-left: 1rem;
+}
 .filter-section{
     width: 37%;
     border-radius: 6px;

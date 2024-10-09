@@ -55,8 +55,8 @@ console.log(data)
             <h4 className=' mt-9'>Applied By</h4>
      <p className='font-bold -mt-8'>{data?.user.name}</p>
      <div className="flex mt-24 justify-around">
-            <button className='bg-blue-500 text-green-400 w-24 font-bold' onClick={()=>{handleAcceptAndReject(data._id,"accepted") ;showNotification("hired") }}>Accept</button>
-            <button className='bg-blue-500 text-red-400 w-24 font-bold' onClick={()=>{handleAcceptAndReject(data._id,"rejected");showNotification("rejected")} }>Reject</button>
+            <button className='bg-blue-500 text-green-400 w-24 font-bold' onClick={()=>{handleAcceptAndReject(data._id,"accepted") ;new showNotification("hired") }}>Accept</button>
+            <button className='bg-blue-500 text-red-400 w-24 font-bold' onClick={()=>{handleAcceptAndReject(data._id,"rejected");new showNotification("rejected")} }>Reject</button>
           </div>
           </div>
       

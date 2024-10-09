@@ -42,7 +42,9 @@ function Job  ()  {
 
 
   <div className="info-intern mt-12">
-   
+  <div className="mt-16">
+      <h1 className='text-center font-bold'>Latest Jobs on intern Area</h1>
+    </div>
     <div className='categories flex flex-wrap mt-14'>
       <p>POPULAR CATEGORIES :</p>
       <span  className={`categ mr-4 ml-6 ${selectedCategory==='Big Brands'?'bg-blue-500 text-white':""}`} 

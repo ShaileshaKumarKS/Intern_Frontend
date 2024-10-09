@@ -1,24 +1,43 @@
 import React, { useState } from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import { useStripe, useElements, CardElement,} from '@stripe/react-stripe-js';
+import './Subscription.css'
 
 const SubscriptionForm = () => {
     const stripe = useStripe();
     const elements = useElements();
-    const [email, setEmail] = useState(''); // Email input for the user
-    const [selectedPlan, setSelectedPlan] = useState(''); // State for selected plan
+    const [email, setEmail] = useState(''); 
+    const [selectedPlan, setSelectedPlan] = useState(''); 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    
+    const PaymentTime=()=>{
+    const now=new Date();
+    const currentHourIST=now.getUTCHours()+5.5;
+    let hour=Math.floor(currentHourIST%24);
+    if(hour>=19 && hour<=21){
+        
+        return;
+    }else{
+        alert("Sorry, Subscriptions & Payments are only allowed between 10AM to 11AM IST.")
+    
+    }
+}
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+         
+
         setLoading(true);
         setError(null);
 
         if (!stripe || !elements) {
-            return; // Stripe.js has not yet loaded.
+            
+            return; 
+            
         }
 
         const cardElement = elements.getElement(CardElement);
+
 
         // Create a payment method
         const { paymentMethod, error } = await stripe.createPaymentMethod({
@@ -32,7 +51,7 @@ const SubscriptionForm = () => {
             return;
         }
 
-        // Send paymentMethodId, selected plan's Price ID, and email to the backend
+        // Sending  paymentMethodId, selected plan's Price ID, and email to the backend
         const response = await fetch('https://internareabackend-nrg6.onrender.com/api/subscribe', {
             method: 'POST',
             headers: {
@@ -49,35 +68,40 @@ const SubscriptionForm = () => {
         if (subscriptionData.error) {
             setError(subscriptionData.error);
         } else {
-            alert('Subscription successful!'); // Notify user
+            alert('Subscription successful!'); 
         }
 
         setLoading(false);
     };
 
     return (
+          
+        <div className='pay'>
         <form onSubmit={handleSubmit}>
             <input
-                type="email"
+                type="email"onClick={PaymentTime}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 required
-            />
+            />&nbsp; &nbsp; &nbsp; &nbsp;
             <select value={selectedPlan} onChange={(e) => setSelectedPlan(e.target.value)}>
                 <option value="">Select a Plan</option>
-                <option value="price_1Q6DWKFMGhaCRLSyBjv3AhQ8">Free Plan</option>
-                <option value="price_1Q6DcyFMGhaCRLSyuMQ7769W">Bronze Plan</option>
-                <option value="price_1Q6DfOFMGhaCRLSyunXaAyeY">Silver Plan</option>
-                <option value="price_1Q6DgbFMGhaCRLSyd0BBG1aO">Gold Plan</option>
+                <option value="price_1Q7ZgCFMGhaCRLSyTB2wsORQ">Free Plan(1 Internship)</option>
+                <option value="price_1Q6DcyFMGhaCRLSyuMQ7769W">Bronze Plan:Rs-100/month(3 Internships)</option>
+                <option value="price_1Q6DfOFMGhaCRLSyunXaAyeY">Silver Plan:Rs-300/month(5 Internships)</option>
+                <option value="price_1Q6DgbFMGhaCRLSyd0BBG1aO">Gold Plan:Rs-1000/month(Unlimited Internships)</option>
             </select>
-            <br/>
+            <br/><br/>
+            
             <CardElement />
-            <button type="submit" disabled={!stripe || loading}>
+            <br/>
+            <button type="submit" className='bg-blue-600 text-white rounded-xl p-1 mr-0' disabled={!stripe || loading}>
                 Subscribe
             </button>
             {error && <div>{error}</div>}
         </form>
+        </div>
     );
 };
 
