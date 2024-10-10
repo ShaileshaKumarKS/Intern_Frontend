@@ -14,7 +14,7 @@ const SubscriptionForm = () => {
     const now=new Date();
     const currentHourIST=now.getUTCHours()+5.5;
     let hour=Math.floor(currentHourIST%24);
-    if(hour>=10 && hour<=15){
+    if(hour>=10 && hour<=11){
         
         return;
     }else{
