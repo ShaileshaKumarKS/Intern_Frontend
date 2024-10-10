@@ -12,13 +12,13 @@ function Intern() {
    const [filterInternship,setFilterInternship]=useState([])
     const [isDivVisible,setDivVisible]=useState(false)
 
-    const [InternData,setInternData]=useState([])
+    const [InternshipData,setInternshipData]=useState([])
 
   useEffect(()=>{
     const fetchData=async()=>{
       try{
-        const response=await axios.get('https://internareabackend-nrg6.onrender.com/api/internship')
-        setInternData(response.data)
+        const response=await axios.get("https://internareabackend-nrg6.onrender.com/api/internships")
+        setInternshipData(response.data)
         
       }catch(error){
         console.log(error)
@@ -47,14 +47,14 @@ function Intern() {
   }
   const filterInternships = useCallback((category, location) => {
     
-    const filterData = InternData.filter(
-      (Internship) =>
-        Internship.category.toLowerCase().includes(category.toLowerCase()) &&
-        Internship.location.toLowerCase().includes(location.toLowerCase())
+    const filterData = InternshipData.filter(
+      (internship) =>
+        internship.category.toLowerCase().includes(category.toLowerCase()) &&
+        internship.location.toLowerCase().includes(location.toLowerCase())
     )
     setFilterInternship(filterData);
   
-},[InternData])
+},[InternshipData])
     
   
    useEffect(()=>{
@@ -69,7 +69,7 @@ function Intern() {
     <div className='flex internship-filter'>
 <div className="first-int mb-14">
   <div className="filter-section w-1/6">
-<p id='filter-ico' className=' text-center' ><i onClick={showDiv} class="bi bi-funnel  text-blue-400"></i> Filter</p>
+<p id='filter-ico' className=' text-center' ><i class="bi bi-funnel  text-blue-400"></i> Filter</p>
 <div className='fill flex flex-col ml-2'>
 <label htmlFor="pro">Profile</label>
 <input type="text" id='pro'  value={searchCategory} onChange={handleCategoryChange} className='profile border-2 mr-3 w-full' placeholder='Profile manager'/>
@@ -109,7 +109,7 @@ function Intern() {
     </div>
     <p className='head font-bold text-lg text-center '  >{filterInternship.length} total internships</p>
 
-    { 
+    {
     filterInternship.map((data,index)=>(
 
 <div className='shadow-lg rounded-lg bg-white m-7 ' id='display' >
@@ -121,7 +121,7 @@ function Intern() {
 <div className="all-ele">
 
 
-<div className='text-lg text-black m-2 mt-7 font-bold'>{data.title}</div>
+<div className='text-lg text-black m-2 mt-7 font-bold'>Internship title</div>
 <div className="info">
 <p className='text-sm text-slate-300 font-bold'>{data.company}</p>
 <p className=' mt-2'>{data.location}</p>
@@ -133,7 +133,7 @@ function Intern() {
   <p className='mt-3'> <i class="bi bi-calendar-check-fill"></i>  Duration  <br />
   {data.Duration}</p>
 
-  <p className='mt-3'>  <i class="bi bi-cash"></i>   Stipend <br /> {data.stipend}</p>
+  <p className='mt-3'>  <i class="bi bi-cash"></i>   Stipend <br />2000-3000</p>
    </div>
    </div>
    <span className='bg-slate-200 text-slate-400 w-20 rounded-sm text-center'>Internship</span>
